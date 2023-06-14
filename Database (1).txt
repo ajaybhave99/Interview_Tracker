@@ -1,0 +1,52 @@
+
+create database Interviwer_Tracker
+
+
+
+
+
+CREATE TABLE Candidate (
+    C_Id INT PRIMARY KEY IDENTITY(1, 1),
+    C_Name VARCHAR(50) ,
+    Phone VARCHAR(20) unique,
+    Email VARCHAR(50) unique,
+	Date date,
+	College_Name varchar(50),
+	Higher_Qualification varchar(50),
+	Stream varchar(100),
+	YearOfPassing varchar(20), 
+	Percentage varchar(20),
+    ResumeFile VARBINARY(MAX),
+	FileName varchar(50)
+);
+
+-- Create the Interviewer table
+CREATE TABLE Interviwer (
+    E_id int PRIMARY KEY identity(1,1),
+    DAS_ID varchar(10) unique not null,
+    Interviewer_Name VARCHAR(20),
+    Phone VARCHAR(20) unique,
+    Email VARCHAR(50) unique,
+	Password Varchar(20),
+    GCM_Level VARCHAR(20),
+    Manager_Name VARCHAR(20),
+	Role Varchar(20)
+);
+
+CREATE TABLE Feedback (
+     F_Id int primary key identity(1,1),
+    Date DATE,
+   
+    Screening_Level VARCHAR(20),
+    Candidate_Id INT,
+    FOREIGN KEY (Candidate_Id) REFERENCES Candidate (C_Id),
+    Interviwer_Id int,
+    FOREIGN KEY (Interviwer_Id) REFERENCES Interviwer (E_id),
+    Feedback VARCHAR(50),
+	Result Varchar(20)
+);
+select * from Candidate
+
+select * from Interviwer
+
+select * from Feedback;
