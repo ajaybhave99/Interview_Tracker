@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Interviwer_TrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Candidate">
+    <Key>
+      <PropertyRef Name="C_Id" />
+    </Key>
+    <Property Name="C_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="C_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="date" />
+    <Property Name="College_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Higher_Qualification" Type="varchar" MaxLength="50" />
+    <Property Name="Stream" Type="varchar" MaxLength="100" />
+    <Property Name="YearOfPassing" Type="varchar" MaxLength="20" />
+    <Property Name="Percentage" Type="varchar" MaxLength="20" />
+    <Property Name="ResumeFile" Type="varbinary(max)" />
+    <Property Name="FileName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="F_Id" />
+    </Key>
+    <Property Name="F_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Screening_Level" Type="varchar" MaxLength="20" />
+    <Property Name="Candidate_Id" Type="int" />
+    <Property Name="Interviwer_Id" Type="int" />
+    <Property Name="Feedback" Type="varchar" MaxLength="50" />
+    <Property Name="Result" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Interviwer">
+    <Key>
+      <PropertyRef Name="E_id" />
+    </Key>
+    <Property Name="E_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DAS_ID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Interviewer_Name" Type="varchar" MaxLength="20" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+    <Property Name="GCM_Level" Type="varchar" MaxLength="20" />
+    <Property Name="Manager_Name" Type="varchar" MaxLength="20" />
+    <Property Name="Role" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__Feedback__Candid__52593CB8">
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="0..1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="C_Id" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="Candidate_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__Interv__534D60F1">
+    <End Role="Interviwer" Type="Self.Interviwer" Multiplicity="0..1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Interviwer">
+        <PropertyRef Name="E_id" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="Interviwer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Interviwer_TrackerModelStoreContainer">
+    <EntitySet Name="Candidate" EntityType="Self.Candidate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Interviwer" EntityType="Self.Interviwer" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Feedback__Candid__52593CB8" Association="Self.FK__Feedback__Candid__52593CB8">
+      <End Role="Candidate" EntitySet="Candidate" />
+      <End Role="Feedback" EntitySet="Feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__Interv__534D60F1" Association="Self.FK__Feedback__Interv__534D60F1">
+      <End Role="Interviwer" EntitySet="Interviwer" />
+      <End Role="Feedback" EntitySet="Feedback" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

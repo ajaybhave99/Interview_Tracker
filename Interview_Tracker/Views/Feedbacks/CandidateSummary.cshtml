@@ -1,0 +1,23 @@
+﻿@model Interview_Tracker.Models.Class1
+<body style="background-color: #333333 ">
+    <a href="@Url.Action("DetailReport", "Feedbacks")" class="btn btn-primary" style="font-family:'Times New Roman';font-size:20px" >Detail Report</a>
+    <a href="@Url.Action("Report", "Feedbacks")" class="btn btn-primary" style="font-family:'Times New Roman';font-size:20px" >Report</a>
+
+
+    @using (Html.BeginForm("CandidateSummary", "Feedbacks", FormMethod.Post))
+
+    {
+        <h3 style=" font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 40px;text-align:center; color: #FF6D3C; ">Overall Report</h3>
+
+        <p style="margin-left:15px;font-family:'Times New Roman';font-size:25px">Total Candidates: @Model.TotalCandidates</p>
+        <p style="margin-left:15px;font-family:'Times New Roman';font-size:25px">Selected Candidates: @Model.SelectedCandidates</p>
+        <p style="margin-left:15px;font-family:'Times New Roman';font-size:25px">Not Selected Candidates: @Model.NotSelectedCandidates</p>
+        <p style="margin-left:15px;font-family:'Times New Roman';font-size:25px">Candidates Selected in L1: @Model.CandidatesSelectedInL1</p>
+        <p style="margin-left:15px;font-family:'Times New Roman';font-size:25px">Candidates Selected in L2: @Model.CandidatesSelectedInL2</p>
+        <p style="margin-left:15px;font-family:'Times New Roman';font-size:25px">Candidates Selected in HR: @Model.CandidatesSelectedInHR</p>
+
+        <input class="btn btn-primary" type="submit" value="Refresh" style="margin-left:15px;font-family:'Times New Roman';font-size:20px" />
+    }
+
+
+</body>

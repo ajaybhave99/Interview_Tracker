@@ -1,0 +1,82 @@
+﻿@model Interview_Tracker.Models.Interviwer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Interviwer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DAS_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DAS_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interviewer_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interviewer_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GCM_Level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GCM_Level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manager_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manager_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.E_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

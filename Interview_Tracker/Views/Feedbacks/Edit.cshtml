@@ -1,0 +1,78 @@
+﻿@model Interview_Tracker.Models.Feedback
+
+@*@{
+    ViewBag.Title = "Edit";
+}*@
+
+
+<body style="background-color: #232526 ">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Feedback</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.F_Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2", style = " font - weight: bold; font - family: 'Times New Roman', Times, serif; font - size: 20px; color:#FF6D3C;" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", style = "color: Black; background-color:White;" } })
+                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Screening_Level, htmlAttributes: new { @class = "control-label col-md-2", style = " font - weight: bold; font - family: 'Times New Roman', Times, serif; font - size: 20px; color:#FF6D3C;" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Screening_Level, new { htmlAttributes = new { @class = "form-control" , style = "color: Black; background-color:White;" } })
+                    @Html.ValidationMessageFor(model => model.Screening_Level, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Candidate_Id, "Candidate_Id", htmlAttributes: new { @class = "control-label col-md-2", style = " font - weight: bold; font - family: 'Times New Roman', Times, serif; font - size: 20px; color:#FF6D3C;" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Candidate_Id", null, htmlAttributes: new { @class = "form-control", style = "color: Black; background-color:White;" })
+                    @Html.ValidationMessageFor(model => model.Candidate_Id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Interviwer_Id, "Interviwer_Id", htmlAttributes: new { @class = "control-label col-md-2" , style = " font - weight: bold; font - family: 'Times New Roman', Times, serif; font - size: 20px; color:#FF6D3C;" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Interviwer_Id", null, htmlAttributes: new { @class = "form-control", style = "color: Black; background-color:White;" })
+                    @Html.ValidationMessageFor(model => model.Interviwer_Id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Feedback1, htmlAttributes: new { @class = "control-label col-md-2", style = " font - weight: bold; font - family: 'Times New Roman', Times, serif; font - size: 20px; color:#FF6D3C;" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Feedback1, new { htmlAttributes = new { @class = "form-control", style = "color: Black; background-color:White;" } })
+                    @Html.ValidationMessageFor(model => model.Feedback1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Result, htmlAttributes: new { @class = "control-label col-md-2", style = " font - weight: bold; font - family: 'Times New Roman', Times, serif; font - size: 20px; color:#FF6D3C;" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Result, new { htmlAttributes = new { @class = "form-control", style = "color: Black; background-color:White;" } })
+                    @Html.ValidationMessageFor(model => model.Result, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>

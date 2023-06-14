@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Interviwer_TrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Candidate">
+          <Key>
+            <PropertyRef Name="C_Id" />
+          </Key>
+          <Property Name="C_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="date" />
+          <Property Name="College_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Higher_Qualification" Type="varchar" MaxLength="50" />
+          <Property Name="Stream" Type="varchar" MaxLength="100" />
+          <Property Name="YearOfPassing" Type="varchar" MaxLength="20" />
+          <Property Name="Percentage" Type="varchar" MaxLength="20" />
+          <Property Name="ResumeFile" Type="varbinary(max)" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="F_Id" />
+          </Key>
+          <Property Name="F_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Screening_Level" Type="varchar" MaxLength="20" />
+          <Property Name="Candidate_Id" Type="int" />
+          <Property Name="Interviwer_Id" Type="int" />
+          <Property Name="Feedback" Type="varchar" MaxLength="50" />
+          <Property Name="Result" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Interviwer">
+          <Key>
+            <PropertyRef Name="E_id" />
+          </Key>
+          <Property Name="E_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DAS_ID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Interviewer_Name" Type="varchar" MaxLength="20" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="GCM_Level" Type="varchar" MaxLength="20" />
+          <Property Name="Manager_Name" Type="varchar" MaxLength="20" />
+          <Property Name="Role" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK__Feedback__Candid__52593CB8">
+          <End Role="Candidate" Type="Self.Candidate" Multiplicity="0..1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidate">
+              <PropertyRef Name="C_Id" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedback__Interv__534D60F1">
+          <End Role="Interviwer" Type="Self.Interviwer" Multiplicity="0..1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Interviwer">
+              <PropertyRef Name="E_id" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="Interviwer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Interviwer_TrackerModelStoreContainer">
+          <EntitySet Name="Candidate" EntityType="Self.Candidate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Interviwer" EntityType="Self.Interviwer" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Feedback__Candid__52593CB8" Association="Self.FK__Feedback__Candid__52593CB8">
+            <End Role="Candidate" EntitySet="Candidate" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedback__Interv__534D60F1" Association="Self.FK__Feedback__Interv__534D60F1">
+            <End Role="Interviwer" EntitySet="Interviwer" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Interviwer_TrackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Candidate">
+          <Key>
+            <PropertyRef Name="C_Id" />
+          </Key>
+          <Property Name="C_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="College_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Higher_Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Stream" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="YearOfPassing" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Percentage" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ResumeFile" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Feedbacks" Relationship="Self.FK__Feedback__Candid__52593CB8" FromRole="Candidate" ToRole="Feedback" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="F_Id" />
+          </Key>
+          <Property Name="F_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Screening_Level" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Candidate_Id" Type="Int32" />
+          <Property Name="Interviwer_Id" Type="Int32" />
+          <Property Name="Feedback1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Result" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Candidate" Relationship="Self.FK__Feedback__Candid__52593CB8" FromRole="Feedback" ToRole="Candidate" />
+          <NavigationProperty Name="Interviwer" Relationship="Self.FK__Feedback__Interv__534D60F1" FromRole="Feedback" ToRole="Interviwer" />
+        </EntityType>
+        <EntityType Name="Interviwer">
+          <Key>
+            <PropertyRef Name="E_id" />
+          </Key>
+          <Property Name="E_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DAS_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Interviewer_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GCM_Level" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Manager_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Feedbacks" Relationship="Self.FK__Feedback__Interv__534D60F1" FromRole="Interviwer" ToRole="Feedback" />
+        </EntityType>
+        <Association Name="FK__Feedback__Candid__52593CB8">
+          <End Role="Candidate" Type="Self.Candidate" Multiplicity="0..1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidate">
+              <PropertyRef Name="C_Id" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedback__Interv__534D60F1">
+          <End Role="Interviwer" Type="Self.Interviwer" Multiplicity="0..1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Interviwer">
+              <PropertyRef Name="E_id" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="Interviwer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Interviwer_TrackerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Candidates" EntityType="Self.Candidate" />
+          <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+          <EntitySet Name="Interviwers" EntityType="Self.Interviwer" />
+          <AssociationSet Name="FK__Feedback__Candid__52593CB8" Association="Self.FK__Feedback__Candid__52593CB8">
+            <End Role="Candidate" EntitySet="Candidates" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedback__Interv__534D60F1" Association="Self.FK__Feedback__Interv__534D60F1">
+            <End Role="Interviwer" EntitySet="Interviwers" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Interviwer_TrackerModelStoreContainer" CdmEntityContainer="Interviwer_TrackerEntities">
+          <EntitySetMapping Name="Candidates">
+            <EntityTypeMapping TypeName="Interviwer_TrackerModel.Candidate">
+              <MappingFragment StoreEntitySet="Candidate">
+                <ScalarProperty Name="C_Id" ColumnName="C_Id" />
+                <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="College_Name" ColumnName="College_Name" />
+                <ScalarProperty Name="Higher_Qualification" ColumnName="Higher_Qualification" />
+                <ScalarProperty Name="Stream" ColumnName="Stream" />
+                <ScalarProperty Name="YearOfPassing" ColumnName="YearOfPassing" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="ResumeFile" ColumnName="ResumeFile" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="Interviwer_TrackerModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="F_Id" ColumnName="F_Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Screening_Level" ColumnName="Screening_Level" />
+                <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+                <ScalarProperty Name="Interviwer_Id" ColumnName="Interviwer_Id" />
+                <ScalarProperty Name="Feedback1" ColumnName="Feedback" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interviwers">
+            <EntityTypeMapping TypeName="Interviwer_TrackerModel.Interviwer">
+              <MappingFragment StoreEntitySet="Interviwer">
+                <ScalarProperty Name="E_id" ColumnName="E_id" />
+                <ScalarProperty Name="DAS_ID" ColumnName="DAS_ID" />
+                <ScalarProperty Name="Interviewer_Name" ColumnName="Interviewer_Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="GCM_Level" ColumnName="GCM_Level" />
+                <ScalarProperty Name="Manager_Name" ColumnName="Manager_Name" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

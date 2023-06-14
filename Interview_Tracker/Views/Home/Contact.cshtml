@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width,initial -scale=1.0">
+
+    <title>Contact Us</title>
+
+
+
+
+    <link rel="stylesheet" href="Contact.css">
+    <style>
+        @*@import url('https://googleapis.com/css2?fa,ily=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');*@
+*
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+        .contact {
+            position: relative;
+            min-height: 100vh;
+            padding: 50px 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-image: url('../../Images/pexels-photo-833460.jpeg');
+            /*background: url(pexels-photo-833460.jpeg);*/
+            background-size: cover;
+        }
+.contact .content
+{
+  max-width: 800px;
+  text-align: center;
+
+}
+
+.contact .content h2
+{
+  font-size: 36px;
+  font-weight: 500;
+  color: #fff;
+
+}
+.contact .content p
+{
+  font-weight: 300;
+  color: #fff;
+
+}
+.container
+{
+
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 30px;
+
+}
+.container1
+{
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-top: 30px;
+}
+.container .contactInfo
+{
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.container .contactInfo .box
+{
+  position: relative;
+  padding: 20px 0;
+  display:flex;
+}
+
+.container .contactInfo .box .icon
+{
+  min-width: 60px;
+  height: 60px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 22px;
+}
+.container .contactInfo .box .text
+{
+  display: flex;
+  margin-left: 20px;
+  font-size: 16px;
+  color:#fff;
+  flex-direction: column;
+  font-weight: 300;
+}
+
+.container .contactInfo .box .text h3
+{
+font-weight: 500;
+color: #00bcd4;
+}
+.contactForm
+{
+
+  width: 40%;
+  padding: 40px;
+  background: #fff;
+}
+.contactForm h2
+{
+font-size: 30px;
+color: #333;
+font-weight: 500;
+}
+
+.contactForm .inputBox
+{
+  position: relative;
+  width:100%;
+  margin-top: 10px;;
+}
+.contactForm .inputBox input,
+.contactForm .inputBox textarea
+{
+ width: 100%;
+ padding:5px 0;
+ font-size: 16px;
+ margin: 10px 0;
+ border: none;
+ border-bottom: 2px solid #333;
+ outline: none;
+ resize: none;
+}
+.contactForm .inputBox span
+{
+  position:absolute;
+  left: 0;
+  padding:5px 0;
+ font-size: 16px;
+ margin: 10px 0;
+ pointer-events: none;
+ transition: 0.5s;
+ color: #666;
+
+}
+.contactForm .inputBox input:focus ~ span,
+.contactForm .inputBox input:valid ~ span,
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox textarea:valid ~ span
+{
+  color: #e91e63;
+  font-size: 12px;
+  transform: translateY(-20px);
+}
+.contactForm .inputBox input[type="submit"]
+{
+  width: 100px;
+  background-color: #00bcd4;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+}
+
+@*@media (max-width: 991px)
+{
+  .contact{
+    padding: 50px;
+  }*@
+  .container{
+    flex-direction: column;
+  }
+
+}
+    </style>
+</head>
+
+<body>
+
+    <section class="contact">
+
+        <div class="content">
+
+            <h2 style="color: #FF6D3C; font-family:'Times New Roman', Times, serif">Contact Us</h2>
+
+            <p>
+
+                Thank you. Please share your thoughts and help us to improve. We would love to hear from you!
+
+                Whether you have a question, suggestion, or feedback, our team is ready to assist you in any way we can.
+            </p>
+
+        </div>
+
+        <div class="container">
+
+
+
+            <div class="contactInfo">
+
+                <div class="box">
+
+                    <!--<div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>-->
+
+                    <div class="text">
+
+                        <h3>Address</h3>
+
+                        <p>
+
+                            Syntel Private Limited
+
+                            Plot No. B-1
+
+                            Software Technology Park, MIDC
+
+                            Talawade, Pune 411062
+
+                            India.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="box">
+
+                    <!--<div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>-->
+
+                    <div class="text">
+
+                        <h3>Call Us</h3>
+
+                        <p> Tel: +91-20-40701000</p>
+
+                    </div>
+
+                </div>
+
+                <div class="box">
+
+                    <!--<div class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></i></div>-->
+
+                    <div class="text">
+
+                        <h3>Email</h3>
+
+                        <p>atossyntel@gmail.com</p>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="container1">
+
+
+
+                <div class="contactForm">
+
+
+
+                    <form>
+
+                        <h2>
+
+                            Send Message
+
+                        </h2>
+
+                        <div class="inputBox">
+
+                            <input type="text" name="" required="required">
+
+                            <span>Full Name</span>
+
+                        </div>
+
+                        <div class="inputBox">
+
+                            <input type="text" name="" required="required">
+
+                            <span>Email</span>
+
+                        </div>
+
+                        <div class="inputBox">
+
+                            <textarea required="required"></textarea>
+
+                            <span>Comments..</span>
+
+                        </div>
+
+                        <div class="inputBox">
+
+                            <input type="Submit" name="" value="Send">
+
+                        </div>
+
+                    </form>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

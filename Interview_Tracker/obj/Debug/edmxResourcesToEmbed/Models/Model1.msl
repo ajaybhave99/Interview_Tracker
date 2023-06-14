@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Interviwer_TrackerModelStoreContainer" CdmEntityContainer="Interviwer_TrackerEntities">
+    <EntitySetMapping Name="Candidates">
+      <EntityTypeMapping TypeName="Interviwer_TrackerModel.Candidate">
+        <MappingFragment StoreEntitySet="Candidate">
+          <ScalarProperty Name="C_Id" ColumnName="C_Id" />
+          <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="College_Name" ColumnName="College_Name" />
+          <ScalarProperty Name="Higher_Qualification" ColumnName="Higher_Qualification" />
+          <ScalarProperty Name="Stream" ColumnName="Stream" />
+          <ScalarProperty Name="YearOfPassing" ColumnName="YearOfPassing" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="ResumeFile" ColumnName="ResumeFile" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="Interviwer_TrackerModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="F_Id" ColumnName="F_Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Screening_Level" ColumnName="Screening_Level" />
+          <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+          <ScalarProperty Name="Interviwer_Id" ColumnName="Interviwer_Id" />
+          <ScalarProperty Name="Feedback1" ColumnName="Feedback" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interviwers">
+      <EntityTypeMapping TypeName="Interviwer_TrackerModel.Interviwer">
+        <MappingFragment StoreEntitySet="Interviwer">
+          <ScalarProperty Name="E_id" ColumnName="E_id" />
+          <ScalarProperty Name="DAS_ID" ColumnName="DAS_ID" />
+          <ScalarProperty Name="Interviewer_Name" ColumnName="Interviewer_Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="GCM_Level" ColumnName="GCM_Level" />
+          <ScalarProperty Name="Manager_Name" ColumnName="Manager_Name" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

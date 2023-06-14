@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Interview_Tracker.Models.Feedback>
+
+@*@{
+    ViewBag.Title = "Index";
+}*@
+
+@*<h2>Index</h2>*@
+<body style="background-color: #333333 ">
+    <p>
+        @*@Html.ActionLink("Create New", "Create")*@
+        <button type="button" onclick="location.href='@Url.Action("Report", "Feedbacks")'" class="btn btn-primary" style="font-family:'Times New Roman';font-size:20px">View Report</button>
+        <button type="button" onclick="location.href='@Url.Action("CandidateSummary", "Feedbacks")'" class="btn btn-primary" style="font-family:'Times New Roman';font-size:20px">Overall Report</button>
+        <button type="button" onclick="location.href='@Url.Action("Index", "Candidates")'" class="btn btn-primary" style="font-family:'Times New Roman';font-size:20px">Candidates List</button>
+
+    </p>
+    <table class="table table-sm table-dark">
+        <tr style="color: #FF6D3C">
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Screening_Level)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feedback1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate.C_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Interviwer.DAS_ID)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Screening_Level)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Feedback1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Result)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Candidate.C_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Interviwer.DAS_ID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.F_Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.F_Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.F_Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

@@ -1,0 +1,182 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #333333;
+    color: white;
+}
+
+body {
+    background-color: #333333;
+    color: white;
+}
+
+/*Navbar Section Style*/
+
+.tr-pad {
+    padding: 80px;
+    color: #FF6D3C;
+}
+
+#tb-pad{
+    padding:80px;
+}
+
+
+#nav-text {
+    color: #FF6D3C;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+#navbar-parent {
+    padding: 15px;
+}
+
+#logo-style {
+    width: 150px;
+}
+
+/*----------XXX------------*/
+
+
+
+/*Slide Section Style*/
+
+.interviewr-up {
+    padding: 8px;
+    width: 150px;
+    border-radius: 25px;
+    background-color: #151515;
+    color: #fff;
+    border-width: 0px;
+    font-weight: bold;
+    margin: auto;
+}
+
+
+.interviewr-up {
+    padding: 8px;
+    width: 150px;
+    border-radius: 25px;
+    background-color: #151515;
+    color: #fff;
+    border-width: 0px;
+    font-weight: bold;
+    margin: auto;
+}
+
+
+    .interviewr-up:hover {
+        padding: 8px;
+        width: 150px;
+        border-radius: 25px;
+        background-color: #FF6D3C;
+        color: #fff;
+        border-width: 0px;
+        font-weight: bold;
+        margin: auto;
+        transition: all .5s ease
+    }
+
+
+.sign-up {
+    padding: 8px;
+    width: 150px;
+    border-radius: 25px;
+    background-color: #FF6D3C;
+    color: #fff;
+    border-width: 0px;
+    font-weight: bold;
+    margin: auto;
+}
+
+
+    .sign-up:hover {
+        padding: 8px;
+        width: 150px;
+        border-radius: 25px;
+        background-color: #151515;
+        color: #fff;
+        transition: all .5s ease;
+        border-width: 0px;
+        font-weight: bold;
+        margin: auto;
+    }
+
+
+#slide-head-title {
+    font-size: 35px
+}
+
+#slide-head-para {
+}
+
+
+#apply-now-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff
+}
+
+
+/*-------------XXX-----*/
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+
+.text-small {
+    font-size: 0.9rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+    a:hover, a:focus {
+        text-decoration: none;
+    }
+
+.form-control {
+    background: #212529;
+    border-color: #545454;
+}
+
+    .form-control:focus {
+        background: #212529;
+    }
+
+footer {
+    background: #212529;
+}
+
+.fo-h1-te {
+    color: #ff0000;
+}
+
+
+#xyz {
+    color: #ff0000;
+}
+
+
+
+
+/*Loginpagetext*/
+#myTextbox {
+    color: blue; /* Set the text color to blue */
+}
+
+/*HOMEIMG*/
+.curved-image {
+    border-radius: 10px; /* Adjust the value to control the amount of curvature */
+}

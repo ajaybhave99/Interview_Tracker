@@ -1,0 +1,65 @@
+﻿@using Interview_Tracker.Models
+
+@model List<Feedback>
+
+@*@{
+    ViewBag.Title = "Feedback Report";
+}*@
+
+<body style="background-color: #333333 ">
+    <p>
+        <a href="@Url.Action("CandidateSummary", "Feedbacks")" class="btn btn-primary" style="font-family:'Times New Roman';font-size:20px" >Overall Report</a>
+        <a href="@Url.Action("DetailReport", "Feedbacks")" class="btn btn-primary" style="font-family:'Times New Roman';font-size:20px" >Detail Report</a>
+        @*<button type="button" onclick="location.href='@Url.Action("Index", "Candidates")'" class="btn btn-primary" style="font-family:'Times New Roman';font-size:20px">Candidates List</button>*@
+
+    </p>
+    <h3 style=" font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 40px;text-align:center; color: #FF6D3C; ">Feedback Report</h3>
+
+    @using (Html.BeginForm("Report", "Feedbacks", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.Label("Candidate Name:")
+            @Html.TextBox("candidateName", null, new { @class = "form-control", style = "font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 20px; color:White; " })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Generate Report</button>
+    }
+
+    <hr />
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <h3 style=" font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 40px;text-align:center; color: #FF6D3C; ">Candidate Report</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style=" font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 20px; color:white; ">Date</th>
+
+                    <th style=" font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 20px; color:white; ">Screening Level</th>
+                    <th style=" font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 20px; color:white; ">Feedback</th>
+                    <th style=" font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 20px; color:white; ">Interviewer Name</th> <!-- Add this column -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var feedback in Model)
+                {
+                    <tr>
+                        <td style=" font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 15px; color:white; ">@(feedback.Date != null ? feedback.Date.Value.ToString("yyyy-MM-dd") : "N/A")</td>
+
+                        <td style=" font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 15px; color:white; ">@feedback.Screening_Level</td>
+                        <td style=" font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 15px; color:white; ">@feedback.Feedback1</td>
+                        <td style=" font-weight: bold; font-family: 'Times New Roman', Times, serif; font-size: 15px; color:white; ">@feedback.Interviwer_Name</td> <!-- Display the interviewer name -->
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>No feedbacks found for the specified candidate.</p>
+    }
+    
+</body>
